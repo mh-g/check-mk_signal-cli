@@ -1,0 +1,10 @@
+#!/bin/bash                                                                                                        
+# Send via Signal                                                                                                  
+
+hostname=$(env | grep "NOTIFY_HOSTNAME=" | awk -F'=' '{print $2}')
+datetime=$(env | grep "NOTIFY_LONGDATETIME=" | awk -F'=' '{print $2}')
+duration=$(env | grep "NOTIFY_LASTHOSTSTATECHANGE_REL=" | awk -F'=' '{print $2}')
+hoststate=$(env |grep "NOTIFY_HOSTSTATE=" | awk -F'=' '{print $2}')
+lasthoststate=$(env | grep "NOTIFY_LASTHOSTSTATE=" | awk -F'=' '{print $2}')
+
+echo "$hostname: $hoststate after $lasthoststate ($duration) at $datetime" | <SIGNAL-CLI-PATH>/bin/signal-cli -u <USER-SENDER> send <USER-RECEIVER>
