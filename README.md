@@ -1,5 +1,5 @@
 # check-mk_signal-cli
-Send check_mk notifications via signal-cli
+Send check_mk notifications via signal-cli (requires https://github.com/AsamK/signal-cli)
 
 Store script at /omd/sites/\<YOUR-SITE\>/share/check_mk/notifications
 
